@@ -1,0 +1,41 @@
+<p>
+  user-profile works! kind of...
+</p>
+<p>Environment : {{envName}}</p>
+<form [formGroup]="fg" (ngSubmit)="OnFormSubmitted(fg.value)">
+  <div>
+    <label for="emailId">Email: </label>
+    <input type="text" id="emailId" [formControl]="fg.controls['email']" [ngClass]="{requiredField : fg.controls['email'].hasError('required')}">
+    <p *ngIf="fg.controls['email'].hasError('required')" [ngClass]="{requiredField : fg.controls['email'].hasError('required')}">email is required</p>
+  </div>
+
+  <div>
+    <label for="passwordId">Password: </label>
+    <input type="text" id="passwordId" [formControl]="fg.controls['password']" [ngClass]="{requiredField : fg.controls['email'].hasError('required')}">
+    <p *ngIf="fg.controls['password'].hasError('required')" [ngClass]="{requiredField : fg.controls['password'].hasError('required')}">password is required</p>
+  </div>  
+
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<div>
+  Redirects to the MVC App
+
+  <p>
+    <a href="{{host}}/Home/About">About</a>
+  </p>
+
+  <p>
+    <a href="{{host}}/Account/Login">Login</a>
+
+  </p>
+
+
+
+  <p>
+    <a href="/Home/About">About Relative</a>
+  </p>
+
+</div>
